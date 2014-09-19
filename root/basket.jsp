@@ -237,37 +237,43 @@ function decQuantity (prodid) {
 	
 	// Display basket
 	try {
-		stmt = conn.prepareStatement("SELECT * FROM BasketContents, Products where basketid=" + basketId + 
-				" AND BasketContents.productid = Products.productid");
-		rs = stmt.executeQuery();
-		out.println("<form action=\"basket.jsp\" method=\"post\">");
-		out.println("<table border=\"1\" class=\"border\" width=\"80%\">");
-		out.println("<tr><th>Product</th><th>Quantity</th><th>Price</th><th>Total</th></tr>");
-		BigDecimal basketTotal = new BigDecimal(0);
-		NumberFormat nf = NumberFormat.getCurrencyInstance();
-		while (rs.next()) {
-			out.println("<tr>");
-			String product = rs.getString("product");
-			int prodId = rs.getInt("productid");
-			BigDecimal pricetopay = rs.getBigDecimal("pricetopay");
-			int quantity = rs.getInt("quantity");
-			BigDecimal total = pricetopay.multiply(new BigDecimal(quantity));
-			basketTotal = basketTotal.add(total);
-			
-			out.println("<td><a href=\"product.jsp?prodid=" + rs.getInt("productid") + "\">" + product + "</a></td>"); 
-			out.println("<td style=\"text-align: center\">&nbsp;<a href=\"#\" onclick=\"decQuantity(" + prodId + ");\"><img src=\"images/130.png\" alt=\"Decrease quantity in basket\" border=\"0\"></a>&nbsp;" +
-					"<input id=\"quantity_" + prodId + "\" name=\"quantity_" + prodId + "\" value=\"" + quantity + "\" maxlength=\"2\" size = \"2\" " +
-					"style=\"text-align: right\" READONLY />&nbsp;<a href=\"#\" onclick=\"incQuantity(" + prodId + ");\"><img src=\"images/129.png\" alt=\"Increase quantity in basket\" border=\"0\"></a>&nbsp;" +
-					"</td>");
-			out.println("<td align=\"right\">" + nf.format(pricetopay) + "</td>");
-			out.println("</td><td align=\"right\">" + nf.format(total) + "</td>");
-			out.println("</tr>");
-		}
-		out.println("<tr><td>Total</td><td style=\"text-align: center\">" + "<input id=\"update\" name=\"update\" type=\"submit\" value=\"Update Basket\"/>" + "</td><td>&nbsp;</td>" +
-				"<td align=\"right\">" + nf.format(basketTotal) + "</td></tr>");
-		out.println("</table>");
-		out.println();
-		out.println("</form>");
+        stmt = conn.prepareStatement("SELECT * FROM BasketContents, Products where basketid=" + basketId +
+                " AND BasketContents.productid = Products.productid");
+        rs = stmt.executeQuery();
+        out.println("<form action=\"basket.jsp\" method=\"post\">");
+        out.println("<table border=\"1\" class=\"border\" width=\"80%\">");
+        out.println("<tr><th>Product</th><th>Quantity</th><th>Price</th><th>Total</th></tr>");
+        BigDecimal basketTotal = new BigDecimal(0);
+        NumberFormat nf = NumberFormat.getCurrencyInstance();
+        while (rs.next()) {
+            out.println("<tr>");
+            String product = rs.getString("product");
+            int prodId = rs.getInt("productid");
+            BigDecimal pricetopay = rs.getBigDecimal("pricetopay");
+            int quantity = rs.getInt("quantity");
+            BigDecimal total = pricetopay.multiply(new BigDecimal(quantity));
+            basketTotal = basketTotal.add(total);
+
+            out.println("<td><a href=\"product.jsp?prodid=" + rs.getInt("productid") + "\">" + product + "</a></td>");
+            out.println("<td style=\"text-align: center\">&nbsp;<a href=\"#\" onclick=\"decQuantity(" + prodId + ");\"><img src=\"images/130.png\" alt=\"Decrease quantity in basket\" border=\"0\"></a>&nbsp;" +
+                    "<input id=\"quantity_" + prodId + "\" name=\"quantity_" + prodId + "\" value=\"" + quantity + "\" maxlength=\"2\" size = \"2\" " +
+                    "style=\"text-align: right\" READONLY />&nbsp;<a href=\"#\" onclick=\"incQuantity(" + prodId + ");\"><img src=\"images/129.png\" alt=\"Increase quantity in basket\" border=\"0\"></a>&nbsp;" +
+                    "</td>");
+            out.println("<td align=\"right\">" + nf.format(pricetopay) + "</td>");
+            out.println("</td><td align=\"right\">" + nf.format(total) + "</td>");
+            out.println("</tr>");
+        }
+        out.println("<tr><td>Total</td><td style=\"text-align: center\">" + "<input id=\"update\" name=\"update\" type=\"submit\" value=\"Update Basket\"/>" + "</td><td>&nbsp;</td>" +
+                "<td align=\"right\">" + nf.format(basketTotal) + "</td></tr>");
+        out.println("</table>");
+        if (userid != null) {
+
+            out.println();
+            out.println("</form>");
+            out.println("<form action='order.jsp' method='post'>");
+            out.println("<input id='order' type='submit' value='Submit your order' />");
+            out.println("</form>");
+        }
 	
 	} catch (SQLException e) {
 		if ("true".equals(request.getParameter("debug"))) {

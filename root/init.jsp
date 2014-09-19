@@ -81,13 +81,13 @@
 						"type varchar(50) NOT NULL, " +
 						"CONSTRAINT UNIQUE_ProductTypes_type UNIQUE (type) )").execute();
 
-				c.prepareStatement("INSERT INTO ProductTypes (type) VALUES ('Widgets')").execute();
-				c.prepareStatement("INSERT INTO ProductTypes (type) VALUES ('Thingies')").execute();
-				c.prepareStatement("INSERT INTO ProductTypes (type) VALUES ('Thingamajigs')").execute();
-				c.prepareStatement("INSERT INTO ProductTypes (type) VALUES ('Whatsits')").execute();
-				c.prepareStatement("INSERT INTO ProductTypes (type) VALUES ('Gizmos')").execute();
-				c.prepareStatement("INSERT INTO ProductTypes (type) VALUES ('Doodahs')").execute();
-				c.prepareStatement("INSERT INTO ProductTypes (type) VALUES ('Whatchamacallits')").execute();
+				c.prepareStatement("INSERT INTO ProductTypes (type) VALUES ('Pants')").execute();
+				c.prepareStatement("INSERT INTO ProductTypes (type) VALUES ('Toys')").execute();
+				c.prepareStatement("INSERT INTO ProductTypes (type) VALUES ('Phones')").execute();
+				c.prepareStatement("INSERT INTO ProductTypes (type) VALUES ('Cars')").execute();
+				c.prepareStatement("INSERT INTO ProductTypes (type) VALUES ('Kitchen')").execute();
+				c.prepareStatement("INSERT INTO ProductTypes (type) VALUES ('Shoes')").execute();
+				c.prepareStatement("INSERT INTO ProductTypes (type) VALUES ('Sport')").execute();
 
 				// Products table
 				c.prepareStatement("CREATE CACHED TABLE Products (" +
@@ -96,44 +96,44 @@
 						"CONSTRAINT UNIQUE_Products_product UNIQUE (product) )").execute();
 
 				// Load the product data (yes, we could use parameters, but this is possibly a bit clearer ;)
-				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Basic Widget', '" + getRndDesc() + "', 1, 1.2)").execute();
-				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Complex Widget', '" + getRndDesc() + "', 1, 3.1)").execute();
-				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Weird Widget', '" + getRndDesc() + "', 1, 4.7)").execute();
+				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Small Pant', '" + getRndDesc() + "', 1, 20.99)").execute();
+				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('XXXL Pant', '" + getRndDesc() + "', 1, 48.5)").execute();
+				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Shorts', '" + getRndDesc() + "', 1, 8.99)").execute();
 
-				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Thingie 1', '" + getRndDesc() + "', 2, 3.0)").execute();
-				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Thingie 2', '" + getRndDesc() + "', 2, 3.2)").execute();
-				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Thingie 3', '" + getRndDesc() + "', 2, 3.3)").execute();
-				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Thingie 4', '" + getRndDesc() + "', 2, 3.5)").execute();
-				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Thingie 5', '" + getRndDesc() + "', 2, 3.7)").execute();
+				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('iPhone', '" + getRndDesc() + "', 2, 27.9)").execute();
+				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('iPad', '" + getRndDesc() + "', 2, 99.0)").execute();
+				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Stuffed Animal', '" + getRndDesc() + "', 2, 14.8)").execute();
+				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Puzzle', '" + getRndDesc() + "', 2, 6.0)").execute();
+				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('XBox 360', '" + getRndDesc() + "', 2, 299.0)").execute();
 
-				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('TGJ AAA', '" + getRndDesc() + "', 3, 0.9)").execute();
-				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('TGJ ABB', '" + getRndDesc() + "', 3, 1.4)").execute();
-				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('TGJ CCC', '" + getRndDesc() + "', 3, 0.7)").execute();
-				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('TGJ CCD', '" + getRndDesc() + "', 3, 2.2)").execute();
-				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('TGJ EFF', '" + getRndDesc() + "', 3, 3.0)").execute();
-				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('TGJ GGG', '" + getRndDesc() + "', 3, 2.6)").execute();
-				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('TGJ HHI', '" + getRndDesc() + "', 3, 2.1)").execute();
-				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('TGJ JJJ', '" + getRndDesc() + "', 3, 0.8)").execute();
+				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Samsung E1200', '" + getRndDesc() + "', 3, 89.7)").execute();
+				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('iPhone 6', '" + getRndDesc() + "', 3, 999.9)").execute();
+				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Audioline', '" + getRndDesc() + "', 3, 69.8)").execute();
+				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Galaxy S6', '" + getRndDesc() + "', 3, 399.4)").execute();
+				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Siemens T5A6', '" + getRndDesc() + "', 3, 89.9)").execute();
+				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Apple Watch', '" + getRndDesc() + "', 3, 655.99)").execute();
+				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Nokia C02', '" + getRndDesc() + "', 3, 52.6)").execute();
+				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Beafon S33', '" + getRndDesc() + "', 3, 31.5)").execute();
 
-				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Whatsit called', '" + getRndDesc() + "', 4, 4.1)").execute();
-				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Whatsit weigh', '" + getRndDesc() + "', 4, 2.5)").execute();
-				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Whatsit feel like', '" + getRndDesc() + "', 4, 3.95)").execute();
-				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Whatsit taste like', '" + getRndDesc() + "', 4, 3.96)").execute();
-				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Whatsit sound like', '" + getRndDesc() + "', 4, 2.9)").execute();
+				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Renault Clio 2.0', '" + getRndDesc() + "', 4, 22396.17)").execute();
+				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Audi A12', '" + getRndDesc() + "', 4, 14444.0)").execute();
+				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Mercedes AKW', '" + getRndDesc() + "', 4, 89000.0)").execute();
+				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('BMW 3.5u6', '" + getRndDesc() + "', 4, 56300.0)").execute();
+				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('VW Phaeton', '" + getRndDesc() + "', 4, 175000.0)").execute();
 
-				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('GZ XT4', '" + getRndDesc() + "', 5, 4.45)").execute();
-				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('GZ ZX3', '" + getRndDesc() + "', 5, 3.81)").execute();
-				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('GZ FZ8', '" + getRndDesc() + "', 5, 1.0)").execute();
-				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('GZ K77', '" + getRndDesc() + "', 5, 3.05)").execute();
+				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Stove', '" + getRndDesc() + "', 5, 290.0)").execute();
+				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Pan', '" + getRndDesc() + "', 5, 69.9)").execute();
+				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Fridge', '" + getRndDesc() + "', 5, 690.0)").execute();
+				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Knife', '" + getRndDesc() + "', 5, 199.89)").execute();
 
-				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Zip a dee doo dah', '" + getRndDesc() + "', 6, 3.99)").execute();
-				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Doo dah day', '" + getRndDesc() + "', 6, 6.50)").execute();
-				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Bonzo dog doo dah', '" + getRndDesc() + "', 6, 2.45)").execute();
+				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Boots', '" + getRndDesc() + "', 6, 199.0)").execute();
+				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Sandals', '" + getRndDesc() + "', 6, 20.0)").execute();
+				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Normal Shoes', '" + getRndDesc() + "', 6, 70.0)").execute();
 
-				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Tipofmytongue', '" + getRndDesc() + "', 7, 3.74)").execute();
-				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Mindblank', '" + getRndDesc() + "', 7, 1.00)").execute();
-				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Youknowwhat', '" + getRndDesc() + "', 7, 4.32)").execute();
-				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Whatnot', '" + getRndDesc() + "', 7, 2.68)").execute();
+				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Canoe', '" + getRndDesc() + "', 7, 1200.0)").execute();
+				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Plane', '" + getRndDesc() + "', 7, 190000.0)").execute();
+				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('Rocket', '" + getRndDesc() + "', 7, 40000000.0)").execute();
+				c.prepareStatement("INSERT INTO Products (product, desc, typeid, price) VALUES ('N(A)SA Satellite', '" + getRndDesc() + "', 7, 35000000.0)").execute();
 
 				// Users table
 				c.prepareStatement("CREATE CACHED TABLE Users (" +
@@ -172,8 +172,8 @@
 
 				// Order Contents table
 				c.prepareStatement("CREATE CACHED TABLE OrderContents (" +
-						"orderid INTEGER GENERATED BY DEFAULT AS IDENTITY(START WITH 1) NOT NULL PRIMARY KEY, " +
-						"basketid INTEGER NOT NULL, productid INTEGER NOT NULL, quantity INTEGER NOT NULL, pricetopay decimal NOT NULL" +
+						"ocid INTEGER GENERATED BY DEFAULT AS IDENTITY(START WITH 1) NOT NULL PRIMARY KEY, " +
+						"orderid INTEGER NOT NULL, productid INTEGER NOT NULL, quantity INTEGER NOT NULL, pricetopay decimal NOT NULL" +
 						" )").execute();
 
 				// Comments table
@@ -207,10 +207,13 @@
 				c.prepareStatement("INSERT INTO Score (task, description, status) VALUES ('XSS_LOGIN', 'Level 3: Display a popup using: &lt;script&gt;alert(\"XSS\")&lt;/script&gt;', 0)").execute();
 				c.prepareStatement("INSERT INTO Score (task, description, status) VALUES ('OTHER_BASKET', 'Access someone elses basket', -1)").execute();
 				c.prepareStatement("INSERT INTO Score (task, description, status) VALUES ('CSRF_BASKET', 'Force someone to add an item to their basket when they visit your webpage.', 0)").execute();
+                c.prepareStatement("INSERT INTO Score (task, description, status) VALUES ('CSRF_ORDER', 'Force someone to order some expensive stuff when they visit your webpage.', 0)").execute();
                                 c.prepareStatement("INSERT INTO Score (task, description, status) VALUES ('NEG_BASKET', 'Get the store to owe you money', 0)").execute();
 				c.prepareStatement("INSERT INTO Score (task, description, status) VALUES ('PASSWD_GET', 'Change your password via a GET request', 0)").execute();
                                 c.prepareStatement("INSERT INTO Score (task, description, status) VALUES ('AES_XSS', 'Conquer AES encryption, and display a popup using: &lt;script&gt;alert(\"H@cked A3S\")&lt;/script&gt;', 0)").execute();
                                 c.prepareStatement("INSERT INTO Score (task, description, status) VALUES ('AES_SQLI', 'Conquer AES encryption and append a list of table names to the normal results.', 0)").execute();
+
+
 
 			}
 			rs.close();
