@@ -27,6 +27,7 @@
         }
     }
 
+    out.println("<!-- Anti CSRF Mitigation:  Check if the referer contains the only valid source site. TBD: Security Review-->");
     if (request.getMethod().equals("POST") && referrer.contains("basket.jsp")) {
 
         Statement stmt = conn.createStatement();
