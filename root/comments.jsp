@@ -8,8 +8,24 @@ String username = (String) session.getAttribute("username");
 String usertype = (String) session.getAttribute("usertype");
 
 String comments = (String) request.getParameter("comments");
-
-if (request.getMethod().equals("POST") && comments != null) {
+%>
+<h3>Your comments</h3>
+Please see what other users think about this amazing site. Please be free to add your feedback or comments here... <br/><br/>
+<form method="POST">
+	<input type="hidden" id="user" name="<%=username%>" value=""/>
+	<center>
+	<table>
+	<tr>
+		<td><textarea id="comments" name="comments" cols=80 rows=8></textarea></td>
+	</tr>
+	<tr>
+		<td><input id="submit" type="submit" value="Submit"></input></td>
+	</tr>
+	</table>
+	</center>
+</form>
+<%
+if (comments != null) {
 
 		PreparedStatement stmt = conn.prepareStatement("INSERT INTO Comments (name, comment) VALUES (?, ?)");
 		ResultSet rs = null;
@@ -36,50 +52,27 @@ if (request.getMethod().equals("POST") && comments != null) {
 		} finally {
 			stmt.close();
 		}
-} else {
-		out.println("<br/><p style=\"color:red\">There was a problem with your feedback, please try again.</p><br/>");
-}
-	// Display all of the messages
+}	// Display all of the messages
 	ResultSet rs = null;
 	PreparedStatement  stmt = conn.prepareStatement("SELECT * FROM Comments");
 	try {
 		rs = stmt.executeQuery();
 		out.println("<br/><center><table border=\"1\" width=\"80%\" class=\"border\">");
-		out.println("<tr><th>User</th><th>Comment</th></tr>");
+		out.println("<tr><th></th><th>Comment</th></tr>");
 		while (rs.next()) {
 			out.println("<tr>");
-			out.println("<td>" + rs.getString("name") + "</td><td>" + rs.getString("comment") + "</td>");
+			out.println("<td>guest</td><td>" + rs.getString("comment") + "</td>");
 			out.println("</tr>");
 		}
 		out.println("</table></center><br/>");
 	} catch (Exception e) {
-		if ("true".equals(request.getParameter("debug"))) {
-			conn.createStatement().execute("UPDATE Score SET status = 1 WHERE task = 'HIDDEN_DEBUG'");
-			out.println("DEBUG System error: " + e + "<br/><br/>");
-		} else {
 			out.println("System error.");
-		}
 	} finally {
 		stmt.close();
 	}
 
 	// Display the message form
 %>
-<h3>Contact Us</h3>
-Please send us your feedback: <br/><br/>
-<form method="POST">
-	<input type="hidden" id="user" name="<%=username%>" value=""/>
-	<center>
-	<table>
-	<tr>
-		<td><textarea id="comments" name="comments" cols=80 rows=8></textarea></td>
-	</tr>
-	<tr>
-		<td><input id="submit" type="submit" value="Submit"></input></td>
-	</tr>
-	</table>
-	</center>
-</form>
 
 <jsp:include page="/footer.jsp"/>
 
