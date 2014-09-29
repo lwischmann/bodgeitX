@@ -8,6 +8,8 @@ String username = (String) session.getAttribute("username");
 String usertype = (String) session.getAttribute("usertype");
 
 String comments = (String) request.getParameter("comments");
+
+ 
 %>
 <h3>Your comments</h3>
 Please see what other users think about this amazing site. Please be free to add your feedback or comments here... <br/><br/>
